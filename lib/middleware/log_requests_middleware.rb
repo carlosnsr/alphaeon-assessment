@@ -7,7 +7,12 @@ class LogRequestsMiddleware
     status, headers, response = @app.call(env)
     request = Rack::Request.new(env)
     request_body = request.body.read
-    log_request_and_response!(request: request_body, headers: env["HTTP_AUTHORIZATION"], url: request.path, response: response.first)
+    log_request_and_response!(
+      request: request_body,
+      headers: env["HTTP_AUTHORIZATION"],
+      url: request.path,
+      response: response.first
+    )
 
     [status, headers, response]
   end

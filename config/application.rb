@@ -1,4 +1,5 @@
 require_relative "boot"
+require_relative "../lib/middleware/log_requests_middleware"
 
 require "rails/all"
 
@@ -23,5 +24,6 @@ module Alphaeon
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.middleware.use LogRequestsMiddleware
   end
 end
