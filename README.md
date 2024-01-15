@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an example Rails application set up to run some tests on the given class `LogRequestsMiddleware`.
+The relevant files for the assessment are:
+- src: [log_requests_middleware.rb](lib/middleware/log_requests_middleware.rb)
+- test: [log_requests_middleware_spec.rb](spec/lib/middleware/log_requests_middleware_spec.rb)
+- conf: [config/application.rb](config/application.rb)
 
-Things you may want to cover:
+- Uses ruby 3.2.2 and rails 7.1.2.
+- Uses Postgres so that we can leverage its JSONB data type.
 
-* Ruby version
+## Setup
 
-* System dependencies
+`bin/rails db:create`
 
-* Configuration
+## To Run
 
-* Database creation
+`bin/rails server` then navigate to [http://127.0.0.1:3000]
 
-* Database initialization
+Not recommended as the `LogRequestsMiddleware` has not been changed to handle the possible errors.
 
-* How to run the test suite
+## Testing
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`bundle exec rspec`
